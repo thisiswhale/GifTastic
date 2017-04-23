@@ -39,7 +39,7 @@ $(document).on("click", ".gif-button", function() {
     var querySearch = $(this).attr("data-search");
     console.log($(this));
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + querySearch + "&limit=" + limit + "&api_key=" + apiKey;
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + querySearch + "&limit=" + limit + "&api_key=" + apiKey;
 
     //calls url and makes uses response to call something
     $.ajax({
@@ -48,7 +48,6 @@ $(document).on("click", ".gif-button", function() {
     }).done(function(response) {
         console.log(response)
         for (var i = 0; i < limit; i++) {
-
 
             //new div for ratings
             var ratingGif = $("<div class='rating'>");
