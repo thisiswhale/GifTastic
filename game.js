@@ -16,7 +16,7 @@ $(document).on("ready", function() {
         console.log(gifArray);
 
     }
-    
+
     createButton();
 
     $(document).on("click", "#add-gif", function(event) {
@@ -51,8 +51,6 @@ $(document).on("ready", function() {
             console.log(response)
             for (var i = 0; i < limit; i++) {
 
-//            	var insertGif = $("<div class='insert-gif'>");
-  //          	$(".box-form").prepend(insertGif);
 
                 //new div for ratings
                 var ratingGif = $("<div class='rating'>");
