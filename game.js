@@ -1,4 +1,4 @@
-var gifArray = ["apple", "banana", "kiwi", "oranges", "watermelon", "mango"];
+var gifArray = ["apple", "banana", "kiwi", "oranges", "watermelon", "mango", "coconut", "passion fruit"];
 var limit = 10;
 
 //renders buttons for already stored gifArray
@@ -32,7 +32,7 @@ $(document).on("click", "#add-gif", function(event) {
 
 $(document).on("click", ".gif-button", function() {
 
-    //create a gif
+    //empty all the gifs inthe div
     $(".insert-gif").empty();
     //api url
     var apiKey = "dc6zaTOxFJmzC";
@@ -50,22 +50,23 @@ $(document).on("click", ".gif-button", function() {
         for (var i = 0; i < limit; i++) {
 
             //new div for ratings
-            var ratingGif = $("<div class='rating'>");
-            ratingGif = $('<p>').text("Rating: " + response.data[i].rating);
+            var rating =$('<p>').text("Rating: " + response.data[i].rating);
+
 
             //new image for images
-            var divGif = $("<img class='gif'>");
+            var gif = $("<img class='gif'>");
             //adds element src with paused gif
-            divGif.attr("src", response.data[i].images.fixed_height_still.url);
+            gif.attr("src", response.data[i].images.fixed_height_still.url);
             //adds element data-state = still
-            divGif.attr("data-state", "still");
+            gif.attr("data-state", "still");
             //adds element data-still with paused gif
-            divGif.attr("data-still", response.data[i].images.fixed_height_still.url)
+            gif.attr("data-still", response.data[i].images.fixed_height_still.url)
                 //adds element data-animate with moving gif
-            divGif.attr("data-animate", response.data[i].images.fixed_height.url)
+            gif.attr("data-animate", response.data[i].images.fixed_height.url)
 
-            $(".insert-gif").prepend(divGif);
-            $(".insert-gif").prepend(ratingGif);
+            $(".insert-gif").prepend(gif);
+            $(".insert-gif").prepend(rating);
+
         }
     }).fail(function(err) {
         throw err;
